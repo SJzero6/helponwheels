@@ -18,50 +18,140 @@ class _ProfilePageState extends State<ProfilePage> {
         body: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          child: Column(
-              children: [
-                Container(
-                 //color: Colors.blue[100],
-                  margin: EdgeInsets.only(left: 10,right: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Help On Wheels",
-                      style: GoogleFonts.albertSans(
-                        textStyle: TextStyle(fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        fontStyle:FontStyle.italic,
-                        color: Colors.red)),),
-                        Image.asset('assets/logo-removebg-preview.png',width: 100,height: 100,)
-                      
-                    ],
+          child: SingleChildScrollView(
+            child: Column(
+                children: [
+                  Container(
+                   //color: Colors.blue[100],
+                    margin: EdgeInsets.only(left: 10,right: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Help On Wheels",
+                        style: GoogleFonts.albertSans(
+                          textStyle: TextStyle(fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          fontStyle:FontStyle.italic,
+                          color: Colors.red)),),
+                          Image.asset('assets/logo-removebg-preview.png',width: 100,height: 100,)
+                        
+                      ],
+                    ),
                   ),
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin: EdgeInsets.only(left: 30,right: 10),
-                  child: Row(
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: EdgeInsets.only(left: 30,right: 10),
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                          maxRadius: 31,
+                          backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',),
+                        ),
+                        SizedBox(width: 20,),
+                        Column(
+                          children: [
+                            Text('PROFILE NAME',style: GoogleFonts.albertSans(textStyle: 
+                            TextStyle(fontSize: 18,))),
+                             Text('gmail@gmail.com',style: GoogleFonts.albertSans(textStyle: 
+                            TextStyle(fontSize: 18,))),
+                  
+                            
+                          ],
+                        
+                        )
+                      ],
+                    ),
+                  ),
+                  Column(
                     children: [
-                      CircleAvatar(
-                        maxRadius: 31,
-                        backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',),
+                      const SizedBox(height: 20,),
+                      Container(
+          
+                        width: MediaQuery.of(context).size.width,
+                    margin: EdgeInsets.only(left: 30,right: 10),
+                        child: TextFormField(  
+                                decoration: const InputDecoration(  
+                                icon: const Icon(Icons.person,color: Colors.red,),  
+                                hintText: 'Enter your name',  
+                                labelText: 'Name', 
+                                labelStyle: TextStyle(color: Colors.red) ,
+                                focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red))
+                              ),  
+                            ),
                       ),
-                      SizedBox(width: 20,),
-                      Column(
-                        children: [
-                          Text('PROFILE NAME',style: GoogleFonts.albertSans(textStyle: 
-                          TextStyle(fontSize: 18,))),
-                           Text('gmail@gmail.com',style: GoogleFonts.albertSans(textStyle: 
-                          TextStyle(fontSize: 18,))),
-                        ],
-                      )
                     ],
                   ),
-                ),
-                
-            
-              ]
+                  const SizedBox(height: 20,),  
+            Container(
+              width: MediaQuery.of(context).size.width,
+                    margin: EdgeInsets.only(left: 30,right: 10),
+              child: TextFormField(  
+                decoration: const InputDecoration(  
+                  icon: const Icon(Icons.phone,color: Colors.red,),  
+                  hintText: 'Enter a phone number',  
+                  labelText: 'Phone',  
+                   labelStyle: TextStyle(color: Colors.red) ,
+                                focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red))
+                ),  
               ),
+            ),
+            const SizedBox(height: 20,),  
+            Container(
+              width: MediaQuery.of(context).size.width,
+                    margin: EdgeInsets.only(left: 30,right: 10),
+              child: TextFormField(  
+                decoration: const InputDecoration(  
+                icon: const Icon(Icons.email,color: Colors.red,),  
+                hintText: 'Enter your Email ID',  
+                labelText: 'Email',  
+                 labelStyle: TextStyle(color: Colors.red) ,
+                                focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red))
+                ),  
+               ),
+            ),
+            const SizedBox(height: 20,),
+            Container(
+              width: MediaQuery.of(context).size.width,
+                    margin: EdgeInsets.only(left: 30,right: 10),
+              child: TextFormField(  
+                decoration: const InputDecoration(  
+                icon: const Icon(Icons.key,color: Colors.red,),  
+                hintText: 'Enter your password',  
+                labelText: 'Password',  
+                 labelStyle: TextStyle(color: Colors.red) ,
+                                focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red))
+                ),  
+               ),
+            ),
+            SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                
+                ElevatedButton(onPressed: (){}, child: Text('settings',style: GoogleFonts.albertSans()),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.red,
+                fixedSize: const Size(100,40)),),
+                ElevatedButton(onPressed: (){}, child: Text('OK',style: GoogleFonts.albertSans(),),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.red,
+                fixedSize:const Size(100,40)),)
+              ],
+            ),
+            SizedBox(height: 20,),Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.logout_rounded,color: Colors.red,),
+                TextButton(onPressed: (){}, child: Text('Logout',
+                style: GoogleFonts.albertSans(textStyle: TextStyle(color: Colors.red)),)
+                  
+                )
+              ],
+            )
+
+                  
+              
+                ]
+                ),
+          ),
         ),
       ),
     );

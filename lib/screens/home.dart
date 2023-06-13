@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:helponwheels/screens/profile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -140,14 +141,18 @@ class _HomePageState extends State<HomePage> {
                       fontSize: 20
                     )),),
                     trailing: Icon(Icons.keyboard_arrow_left_outlined),
-                    onTap: (){},
+                    onTap: (){
+                      
+                    },
                   ),
                   ListTile(leading: Icon(Icons.person),
                     title: Text('Profile',style: GoogleFonts.albertSans(textStyle: TextStyle(
                       fontSize: 20
                     )),),
                     trailing: Icon(Icons.keyboard_arrow_left_outlined),
-                    onTap: (){},
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder:(context) => ProfilePage(),));
+                    },
                   ),ListTile(leading: Icon(Icons.history),
                     title: Text('History',style: GoogleFonts.albertSans(textStyle: TextStyle(
                       fontSize: 20
